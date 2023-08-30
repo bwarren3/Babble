@@ -3,6 +3,12 @@ package edu.westga.cs.babble.model;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+/**
+ * Defines a group of tiles.
+ * 
+ * @author lewisb
+ * @version Fall 2023
+ */
 public abstract class TileGroup {
 
 	private ObservableList<Tile> tiles;
@@ -27,7 +33,7 @@ public abstract class TileGroup {
 	 * @param tile the Tile to append
 	 */
 	public void append(Tile tile) {
-		if(tile==null) {
+		if (tile == null) {
 			throw new IllegalArgumentException("tile cannot be null");
 		}
 		
@@ -57,12 +63,14 @@ public abstract class TileGroup {
 	
 	/**
 	 * Stringifies the contents of the rack as the tile characters, in order of containment.
+	 * 
+	 * @return stringifiedHand
 	 */
 	public String getHand() {
-		String s = "";
-		for(Tile t: this.tiles) {
-			s += t.getLetter();
+		String stingifiedHand = "";
+		for (Tile currentTile: this.tiles) {
+			stingifiedHand += currentTile.getLetter();
 		}
-		return s;
+		return stingifiedHand;
 	}
 }
